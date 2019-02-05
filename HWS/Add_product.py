@@ -1,31 +1,42 @@
-""""
-Module Name: Add_product.py
-Description: This file will help admin to add new product to the product database.
-Last Edited by: Rahul Bhoir
-Date:21/10/2018
-"""
-def product():
-    print("Add Product")
+class Add_Product:
+    def __init__(self):
+        print("ADD PRODUCT")
 
-    # enter medicine name
-    med = input("medicine name:")
+    def product_details(self):
 
+        self.product_name = input("enter the product name:")
+        self.units = int(input("enter the units:"))
 
-    #Storing input data into the file
-    if med.isalnum():
-        # opening the file to write data in it
-        f = open("product.txt", "a")
+    def validate_product(self):
 
-        # entering the medicine data to the file
-        f.write(med)
+        if self.product_name.isalnum():
+            pass
+        else :
+            print("enter valid data")
+            exit()
+
+        if self.units >0:
+            self.units = str(self.units)
+        else :
+            print("enter positive number")
+
+    def add_product(self):
+
+        f = open("product.txt","a")
+
         f.write("\n")
+        f.write("product:")
+        f.write(self.product_name)
+        f.write("\t")
+        f.write("units:")
+        f.write(self.units)
 
-        # closing the file
         f.close()
 
-        # display message when data entry is done successfully
-        print("database updated")
-    else:
-        # display message when their is any error
-        print("invalid entry")
-        exit()
+
+ap = Add_Product()
+ap.product_details()
+ap.validate_product()
+ap.add_product()
+
+

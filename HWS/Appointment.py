@@ -1,68 +1,56 @@
-"""
-Module Name: Appointment.py
-Description: This file allow user to take appointment for a particular doctor.
-Last Edited by: Rahul Bhoir
-Date:21/10/2018
-"""
-def appoint():
-    print("Appointment\n")
+class Appointmnet:
+    def __init__(self):
+        self.user_name = ""
+        self.dname = " "
+        self.mobile = " "
 
-    #Want to take appointment ??
-    app = input("Take an appointment (Y/N)?")
+    def enter_details(self):
 
-    if app == "Y" or app== "y":
-        with open("user_details.txt", "a") as f:
-            f.write("\n")
+        self.user_name = input("patient username: ")
+        self.mobile = input("mobile number: ")
+        self.dname = input("doctor name: ")     # entering doctor name
 
-            dname = input("Doctor Name:-")#entering doctor name
+    def validate_details(self):
 
-            # validation for correct data
-            if dname.isalpha():
-                print()
-            else:
-                print("invalid name")
-                exit()
+        # validation for doctor name
+        if self.dname.isalpha():
+            print()
+        else:
+            print("invalid doc name")
+            exit()
 
-            # entering patient name
-            fname = input("Patient Username:-")
+        # validation for patient name
+        if self.user_name.isalpha():
+            print()
+        else:
+            print("invalid patient name")
+            exit()
 
-            # validation for correct data
-            if fname.isalpha():
-                print()
-            else:
-                print("invalid entry")
-                exit()
+        # validation for mobile number of the patient
+        if self.mobile.isdigit() and len(self.mobile) == 10:
+            print()
+        else:
+            print("invalid mobile number")
+            exit()
+        print("success")
 
-            # entering mobile number of the patient
-            mobile = input("Mobile No:-")
+    def add_appointment(self):
 
-            # validation for correct data
-            if mobile.isdigit():
-                print()
-            else:
-                print("invalid entry")
-                exit()
-
-    # opening file to save data
-    f = open("patient.txt", "a")
-    f.write("\n")
-
-    #Storing input data into the file
-    if(mobile.isdigit() and fname.isalpha() and dname.isalpha()):
-
-        #writing the input data in the file
-        f.write("patient name:")
-        f.write(fname)
+        f= open("patient.txt", "a")
+        f.write("\n")
+        f.write("Patient name:")
+        f.write(self.user_name)
         f.write("\t")
-        f.write("mobile no:")
-        f.write(mobile)
+        f.write("Mobile number:")
+        f.write(self.mobile)
         f.write("\t")
         f.write("doctor name:")
-        f.write(dname)
+        f.write(self.dname)
         f.write("\t")
         f.close()
 
-        #displaying the confirmation message after storing the data
-        print("confirmation message will be send")
-    else:
-        exit()
+
+app = Appointmnet()
+app.enter_details()
+app.validate_details()
+app.add_appointment()

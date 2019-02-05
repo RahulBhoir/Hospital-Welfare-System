@@ -1,83 +1,91 @@
-""""
-Module Name: Register1.py
-Description: This file allow the user to create a new account in the system.
-Last Edited by: Rahul Bhoir
-Date:21/10/2018
-"""
+import re  # importing this package for using match funtion for validation of email id
+class Register:
 
 
-def register():
-    import re #importing this package for using match funtion for validation of email id
+    def user_details(self):
+        # print Registration on the Screen
+        print("Registration")
 
-    #print Registration on the Screen
-    print("Registration")
+        self.fname = input("First name")    # enter first name
+        self.lname = input("Last name")     # enter last name
+        self.mobile = input("Mobile No:-")  # enter mobile number
+        self.mail = input("E-mail:-")  # enter e-mail
+        self.uname = input("Username:-")  # enter username
+        self.password = input("Password:-")  # enter password
+        self.cpassword = input("Password:-")  # enter  confirm password
 
-    # entering user details
-    fname = input("First Name:-")  # enter first name
+    def validate_details(self):
 
-    if fname.isalpha():            # validation for correct data
-        print()
-    else:
-        print("invalid entry")
-        exit()
+        # validation for first name
+        if self.fname.isalpha():
+            print()
+        else:
+            print("invalid entry")
+            exit()
 
-    lname = input("Last Name:-")    # enter last name
+        # validation for last name
+        if self.lname.isalpha():
+            print()
+        else:
+            print("invalid entry")
+            exit()
 
-    if lname.isalpha():   # validation for correct data
-        print()
-    else:
-        print("invalid entry")
-        exit()
+        # validation for mobile number
+        if self.mobile.isdigit() and len(self.mobile) == 10:
+            print()
+        else:
+            print("invalid entry")
+            exit()
 
-    mobile = input("Mobile No:-")   # enter mobile number
+        # validation for email id
+        match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', self.mail)
+        if (match == None):
+            print("invalid mail address")
+            exit()
+        else:
+            print()
 
-    if mobile.isdigit():  # validation for correct data
-        print()
-    else:
-        print("invalid entry")
-        exit()
+        # validation for user name
+        if self.uname.isalnum():
+            print()
+        else:
+            print("invalid username")
+            exit()
 
-    mail = input("E-mail:-")  # enter e-mail
-    match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', mail)
-    if (match == None):  # validation for correct data
-        print("invalid mail address")
-        exit()
-    else:
-        print()
+        # validation for password
+        if self.password == self.cpassword:
+            print()
+        else:
+            print(" password not match")
+            exit()
+        print("success")
 
-    uname = input("Username:-")  # enter username
-    if uname.isalnum():  # validation for correct data
-        print()
-    else:
-        print("invalid username")
-        exit()
+    def store_detail(self):
+        # storing input data if every input data is correct
+        if ((self.mobile.isdigit()) and (self.lname.isalpha()) and (self.fname.isalpha()) and
+                (self.password == self.cpassword) and (self.uname.isalnum())):
 
-    password = input("Password:-")           # enter password
-    cpassword = input("Confirm Password:-")  # enter password again for confirm password
-    if password == cpassword:                # validation for correct data
-        print()
-    else:
-        print(" password not match")
-        exit()
+            f = open("user_details.txt", "a") #opening a file named  user_details.txt
+            f.write("\n")
+            f.write(self.fname)
+            f.write("\t")
+            f.write(self.lname)
+            f.write("\t")
+            f.write(self.mobile)
+            f.write("\t")
+            f.write(self.mail)
+            f.write("\t")
+            f.write(self.uname)
+            f.write("\t")
+            f.write(self.password)
+            f.close()
+            print("Registration successful")  # display message if data entry is successful
+        else:
+            exit()
 
-# storing input data if every input data is correct
-    if ((mobile.isdigit()) and (lname.isalpha()) and (fname.isalpha()) and
-            (password == cpassword) and (uname.isalnum())):
 
-        f = open("user_details.txt", "a")
-        f.write("\n")
-        f.write(fname)
-        f.write("\t")
-        f.write(lname)
-        f.write("\t")
-        f.write(mobile)
-        f.write("\t")
-        f.write(mail)
-        f.write("\t")
-        f.write(uname)
-        f.write("\t")
-        f.write(password)
-        f.close()
-        print("Registration successful")  # display message if data entry is successful
-    else:
-        exit()
+# function calls
+r = Register()
+r.user_details()
+r.validate_details()
+r.store_detail()

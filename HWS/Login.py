@@ -1,50 +1,59 @@
-""""
-Module Name: Login.py
-Description: This file allow the user to login to access the system.
-Last Edited by: Rahul Bhoir
-Date:21/10/2018
-"""
-def login():
-    print("Login page \n")
+class Login:
+    def __init__(self,):
+        self.user_name = " "
+        self.password  = " "
+        self.un_count = 0
+        self.pss_count = 0
+        self.filename = "user_details.txt"
 
-    #enter the username
-    user_name = input("Username:-")
+    def enter_details(self):
+        print("Login page \n")
 
-    #enter the password
-    password = input("Password:-")
+        # enter the username
+        self.user_name = input("Username:-")
+
+        # enter the password
+        self.password = input("Password:-")
 
     #username validation
-    def wordcount(filename, word, passwd):
+    def wordcount(self,):
+
+        print(self.filename)
 
         try:
             # opening the file to read data
-            file = open(filename, "r")
+            file = open("user_details.txt", "r")
 
             read = file.readlines()
 
             #closing the file
             file.close()
 
-            for word in word:
-                lower = word.lower() #convert string into lower-case
-                count1 = 0
-                for sentance in read:
-                    line = sentance.split()
+            for word in self.user_name:
+                un = word.lower() #convert string into lower-case
+                self.un_count = 0
+                print("##1")
+
+                for i in read:
+                    line = i.split()
+                    print("##2")
 
                     for each in line:
                         line2 = each.lower()
                         line2 = line2.strip("!@#$%^&*()-*")
+                        print("##3")
 
-                        if lower == line2:
-                            count1 += 1
-                                                                                                        #print(lower,":", count1)
+                        if un == line2:
+                            self.un_count += 1
+                            print(self.un_count)
+                                                                                                        #print(lower,":", un_count)
         except FileExistsError:
             print("error")
 
     # password validation
         try:
             #opening the file for reading data
-            file = open(filename, "r")
+            file = open("user_details.txt", "r")
 
             #reading line from the file
             read_password = file.readlines()
@@ -52,9 +61,9 @@ def login():
             #closing the file
             file.close()
 
-            for word in passwd:
+            for word in self.password:
                 passwd1 = word.lower()
-                pss_count = 0
+                self.pss_count = 0
                 for a in read_password:
 
                     #spliting the words on the line by space
@@ -65,15 +74,25 @@ def login():
                         passwd2 = passwd2.strip("!@#$%^&*()-*")
 
                         if passwd1  == passwd2:
-                            pss_count += 1
+                            self.pss_count += 1
+                            print(self.pss_count)
                                                                                                     #print(lower,":", count2)
         except FileExistsError:
             print("error")
+        print("success")
+        print(self.pss_count)
+        print(self.un_count)
 
-        if (count1 == 1 and pss_count == 1):
-            print("welcome",user_name)
+    def display_msg(self):
+        if (self.un_count == 1 and self.pss_count == 1):
+            print("welcome",self.user_name)
             #exit()
         else:
             print("try again")
             #exit()
-    wordcount("user_details.txt", [user_name],[password])
+
+l = Login()
+l.enter_details()
+l.wordcount()
+l.display_msg()
+

@@ -1,5 +1,2 @@
-Donor Name:rahul bhoir	mobile no:9049742164	Gender:M	Organ:eye	
-Donor Name:prakash bhoir	mobile no:9049742165	Gender:M	Organ:kidney	
-Donor Name:Kalyani Borkar	mobile no:7776978417	Gender:F	Organ:Eyes	
-Donor Name:rahul bhoir	mobile no:9079472164	Gender:M	Organ:eye	
-Donor Name:Pranali Bhoir	mobile no:7040609389	Gender:F	Organ:liver	
+
+Donor Name:rahul bhoir	mobile no:9049742164	Gender:M	Organ:eyes	

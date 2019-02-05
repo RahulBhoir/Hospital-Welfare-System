@@ -1,9 +1,2 @@
-med1
-med2
-med3
-med1
-med4
-med4
-med1	
-med5
-med6
+
+product:med1	units:2

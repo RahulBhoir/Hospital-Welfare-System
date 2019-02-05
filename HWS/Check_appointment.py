@@ -1,18 +1,17 @@
-""""
-Module Name: check_appointment.py
-Description: This file allow actor to check the appointments for the doctors.
-Last Edited by: Rahul Bhoir
-Date:21/10/2018
-"""
-def check():
-    print("Appointment Details:")
+class Check_Appoitnment:
 
-    # opening file to read data
-    f = open("patient.txt", "r")
+    def appoint_details(self):
+        print("Appointment Details:")
 
-    #for reading line from the file
-    f1 = f.readlines()
+        # opening file to read data
+        f = open("patient.txt", "r")
 
-    # for displaying data
-    for x in f1:
-        print(x)
+        # for reading line from the file
+        f1 = f.readlines()
+
+        # for displaying data
+        for x in f1:
+            print(x)
+
+ca = Check_Appoitnment()
+ca.appoint_details()
