@@ -1,0 +1,4 @@
+patient name:roger	mobile no:9049742164	doctor name:rajiv
+patient name:xzy	mobile no:1259364780	doctor name:abc
+patient name:roger	mobile no:9049742164	doctor name:abc	
+patient name:roger	mobile no:9049742164	doctor name:dsa	
