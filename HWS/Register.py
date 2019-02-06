@@ -62,8 +62,6 @@ class Register:
 
     def store_detail(self):
         # storing input data if every input data is correct
-        if ((self.mobile.isdigit()) and (self.lname.isalpha()) and (self.fname.isalpha()) and
-                (self.password == self.cpassword) and (self.uname.isalnum())):
 
             f = open("user_details.txt", "a") #opening a file named  user_details.txt
             f.write("\n")
@@ -80,12 +78,10 @@ class Register:
             f.write(self.password)
             f.close()
             print("Registration successful")  # display message if data entry is successful
-        else:
-            exit()
+            print()
+            print()
+
 
 
 # function calls
 r = Register()
-r.user_details()
-r.validate_details()
-r.store_detail()

@@ -51,6 +51,3 @@ class Appointmnet:
 
 
 app = Appointmnet()
-app.enter_details()
-app.validate_details()
-app.add_appointment()

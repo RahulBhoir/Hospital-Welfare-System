@@ -1,23 +1,22 @@
+""""
+Module Name: Quick_diagnosis.py
+Description: This file allow the user to get treatment information
+Last Edited by: Rahul Bhoir
+Date:21/10/2018
+"""
+def quick_diagnosis():
+    try:
+        from googlesearch import search
+    except ImportError:
+        print("No module named 'google' found")
 
-class Quick_diagnosis:
-    def __init__(self):
-        print("QUICK DIAGNOSIS")
+    # to search the treatment
 
-    def quick_diagnosis(self):
-        try:
-            from googlesearch import search
-        except ImportError:
-            print("No module named 'google' found")
+    # enter the data
+    query = input("Enter Diagnosis: ")
 
-        # to search the treatment
+    # search for the data entered by the user
+    for j in search(query, tld="co.in", num=10, stop=1, pause=2):
 
-        # enter the data
-        query = input("Enter Diagnosis: ")
-
-        # search for the data entered by the user
-        for j in search(query, tld="co.in", num=10, stop=1, pause=2):
-            # print links available for that diagnosis
-            print(j)
-
-qd = Quick_diagnosis()
-qd.quick_diagnosis()
+        #print links available for that diagnosis
+        print(j)
