@@ -11,3 +11,5 @@ class Find_Donor:
         # for displaying data
         for x in f1:
             print(x)
+
+d = Find_Donor()

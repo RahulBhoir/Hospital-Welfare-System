@@ -1,18 +1,26 @@
-import re  # importing this package for using match funtion for validation of email id
-class Register:
+import re  # importing this package for using match function for validation of email id
 
+
+class Register:
+    def __init__(self):
+        self.fname = ""
+        self.lname = ""
+        self.mail = ""
+        self.mobile = ""
+        self.password = ""
+        self.cpassword = ""
+        self.uname = ""
 
     def user_details(self):
-        # print Registration on the Screen
-        print("Registration")
+        print("Registration")                   # print Registration on the Screen
 
-        self.fname = input("First name")    # enter first name
-        self.lname = input("Last name")     # enter last name
-        self.mobile = input("Mobile No:-")  # enter mobile number
-        self.mail = input("E-mail:-")  # enter e-mail
-        self.uname = input("Username:-")  # enter username
-        self.password = input("Password:-")  # enter password
-        self.cpassword = input("Password:-")  # enter  confirm password
+        self.fname = input("First name:-")      # enter first name
+        self.lname = input("Last name:-")       # enter last name
+        self.mobile = input("Mobile No:-")      # enter mobile number
+        self.mail = input("E-mail:-")           # enter e-mail
+        self.uname = input("Username:-")        # enter username
+        self.password = input("Password:-")     # enter password
+        self.cpassword = input("Confirm Password:-")  # enter  confirm password
 
     def validate_details(self):
 
@@ -38,8 +46,8 @@ class Register:
             exit()
 
         # validation for email id
-        match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', self.mail)
-        if (match == None):
+        match = re.match('^[_a-z0-9-]+([_a-z0-9-]+)*@[a-z0-9-]+([a-z0-9-]+)*([a-z]{2,4})$', self.mail)
+        if match is None:
             print("invalid mail address")
             exit()
         else:
@@ -62,10 +70,8 @@ class Register:
 
     def store_detail(self):
         # storing input data if every input data is correct
-        if ((self.mobile.isdigit()) and (self.lname.isalpha()) and (self.fname.isalpha()) and
-                (self.password == self.cpassword) and (self.uname.isalnum())):
 
-            f = open("user_details.txt", "a") #opening a file named  user_details.txt
+            f = open("user_details.txt", "a")       # opening a file named  user_details.txt
             f.write("\n")
             f.write(self.fname)
             f.write("\t")
@@ -80,12 +86,9 @@ class Register:
             f.write(self.password)
             f.close()
             print("Registration successful")  # display message if data entry is successful
-        else:
-            exit()
+            print()
+            print()
 
 
 # function calls
 r = Register()
-r.user_details()
-r.validate_details()
-r.store_detail()

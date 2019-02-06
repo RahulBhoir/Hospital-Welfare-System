@@ -35,8 +35,3 @@ class Add_Product:
 
 
 ap = Add_Product()
-ap.product_details()
-ap.validate_product()
-ap.add_product()
-
-

@@ -14,4 +14,3 @@ class Check_Appoitnment:
             print(x)
 
 ca = Check_Appoitnment()
-ca.appoint_details()

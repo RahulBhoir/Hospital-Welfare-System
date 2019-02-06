@@ -20,4 +20,3 @@ class Quick_diagnosis:
             print(j)
 
 qd = Quick_diagnosis()
-qd.quick_diagnosis()

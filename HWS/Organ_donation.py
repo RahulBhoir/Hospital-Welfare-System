@@ -83,6 +83,3 @@ class Organ_Donation:
         print(" Thank You for Saving a Life")
 
 od = Organ_Donation()
-od.enter_details()
-od.validate()
-od.add_user()
