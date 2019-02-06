@@ -36,7 +36,7 @@ while t!=10:
 
      #for login to the system
     elif(choice == 2):
-        from Login import *
+        import Login
         Login.login()
 
     #for taking appointment
